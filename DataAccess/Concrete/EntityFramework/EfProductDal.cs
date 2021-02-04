@@ -39,7 +39,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public Product GetT(Expression<Func<Product, bool>> filter)
+        public Product Get(Expression<Func<Product, bool>> filter)
         {
             using (NorthwindContext context = new NorthwindContext())
             {
