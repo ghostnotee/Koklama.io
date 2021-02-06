@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -61,7 +62,7 @@ namespace DataAccess.Concrete.InMemory
             return _products.Where(p => p.CategoryId == categoryId).ToList();
         }
 
-        public Product GetT(Expression<Func<Product, bool>> filter)
+        public Product Get(Expression<Func<Product, bool>> filter)
         {
             throw new NotImplementedException();
         }
@@ -73,6 +74,11 @@ namespace DataAccess.Concrete.InMemory
             productToUpdate.CategoryId = product.CategoryId;
             productToUpdate.UnitPrice = product.UnitPrice;
             productToUpdate.UnitsInStock = product.UnitsInStock;
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
         }
     }
 }
