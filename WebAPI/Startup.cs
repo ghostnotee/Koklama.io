@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
+using Core.Extensions;
+using Core.DependencyResolvers;
 
 namespace WebAPI
 {
@@ -50,7 +52,9 @@ namespace WebAPI
                     };
                 });
 
-            ServiceTool.Create(services);
+            services.AddDependencyResolvers(new ICoreModule[] {
+               new CoreModule()
+            });
 
             services.AddSwaggerGen(c =>
             {
