@@ -19,5 +19,6 @@ namespace Business.Constants
         public static string AccessTokenCreated = "Token oluşturuldu.";
         public static string PasswordError = "Parola Hatası.";
         public static string SuccessfulLogin = "Başarılı giriş.";
+        public static string ProductUpdated = "Ürün Güncellendi.";
     }
 }
