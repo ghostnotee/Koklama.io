@@ -5,7 +5,7 @@ using DataAccess.Abstract;
 
 namespace Business.Concrete
 {
-    public class UserManager:IUserService
+    public class UserManager : IUserService
     {
         IUserDal _userDal;
 
@@ -27,6 +27,16 @@ namespace Business.Concrete
         public User GetByMail(string email)
         {
             return _userDal.Get(u => u.Email == email);
+        }
+
+        public void Delete(User user)
+        {
+            _userDal.Delete(user);
+        }
+
+        public void Update(User user)
+        {
+            _userDal.Update(user);
         }
     }
 }
