@@ -1,3 +1,9 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 namespace Core.Extensions
 {
     public class ExceptionMiddleware
@@ -17,17 +23,17 @@ namespace Core.Extensions
             }
             catch (Exception e)
             {
-                await HandleExceptionAsync(httpContext,e);
+                await HandleExceptionAsync(httpContext, e);
             }
         }
 
         private Task HandleExceptionAsync(HttpContext httpContext, Exception e)
         {
             httpContext.Response.ContentType = "application/json";
-            httpContext.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
+            httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
             string message = "Internal Server Error";
-            if (e.GetType()==typeof(ValidationException))
+            if (e.GetType() == typeof(ValidationException))
             {
                 message = e.Message;
             }
